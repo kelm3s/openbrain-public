@@ -1,0 +1,22 @@
+# Build output
+lambda/dist/
+node_modules/
+*.zip
+*.tgz
+
+# Real ARNs — never commit
+infra/iam-policy-applied.json
+
+# Scratch / temp files
+lambda/outfile.json
+lambda/outfile.txt
+lambda/response.json
+
+# Editor
+.vscode/
+
+# MCP client config files — these hold real brain keys, never commit them
+mcp.json
+claude_desktop_config.json
+.openbrain.env
+*.local.json

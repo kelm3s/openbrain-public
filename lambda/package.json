@@ -1,0 +1,29 @@
+{
+  "name": "openbrain-lambda",
+  "version": "1.0.0",
+  "description": "OpenBrain MCP server — persistent AI memory on AWS Lambda",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "package": "npm run clean && npm run build && zip -r ../openbrain.zip dist/ node_modules/ package.json",
+    "deploy": "npm run package && aws lambda update-function-code --function-name openbrain --zip-file fileb://../openbrain.zip --region us-east-1",
+    "logs": "aws logs tail /aws/lambda/openbrain --follow"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.0.0",
+    "@aws-sdk/client-rds-data": "^3.0.0",
+    "@aws-sdk/client-ssm": "^3.0.0",
+    "@modelcontextprotocol/sdk": "^1.28.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.0",
+    "@types/node": "^25.5.0",
+    "typescript": "^6.0.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

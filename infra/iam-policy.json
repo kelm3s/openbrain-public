@@ -1,0 +1,47 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AuroraDataAPI",
+      "Effect": "Allow",
+      "Action": [
+        "rds-data:ExecuteStatement"
+      ],
+      "Resource": "arn:aws:rds:us-east-1:YOUR_ACCOUNT_ID:cluster:openbrain-cluster"
+    },
+    {
+      "Sid": "SecretsManagerForAurora",
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": "arn:aws:secretsmanager:us-east-1:YOUR_ACCOUNT_ID:secret:rds!cluster-*"
+    },
+    {
+      "Sid": "SSMParameterStore",
+      "Effect": "Allow",
+      "Action": [
+        "ssm:GetParameter"
+      ],
+      "Resource": "arn:aws:ssm:us-east-1:YOUR_ACCOUNT_ID:parameter/openbrain/brain-key"
+    },
+    {
+      "Sid": "BedrockEmbeddings",
+      "Effect": "Allow",
+      "Action": [
+        "bedrock:InvokeModel"
+      ],
+      "Resource": "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-embed-text-v2:0"
+    },
+    {
+      "Sid": "CloudWatchLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:us-east-1:YOUR_ACCOUNT_ID:log-group:/aws/lambda/openbrain:*"
+    }
+  ]
+}

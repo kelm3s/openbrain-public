@@ -1,0 +1,12 @@
+# Gitleaks configuration
+# https://github.com/gitleaks/gitleaks#configuration
+
+[allowlist]
+  description = "Allowlist placeholder values used in documentation examples — never real secrets"
+  # Match on the regex value that gitleaks detected, not the whole file.
+  # This way a real key in docs/ would still be caught.
+  regexes = [
+    '''YOUR_BRAIN_KEY''',
+    '''YOUR_KEY''',
+    '''YOUR_SECRET''',
+  ]
