@@ -12,7 +12,7 @@
     "logs": "aws logs tail /aws/lambda/openbrain --follow"
   },
   "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "^3.0.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.1024.0",
     "@aws-sdk/client-rds-data": "^3.0.0",
     "@aws-sdk/client-ssm": "^3.0.0",
     "@modelcontextprotocol/sdk": "^1.28.0",
