@@ -7,8 +7,8 @@ on:
     branches: ["**"]
 
 jobs:
-  scan:
-    name: Secret scan
+  gitleaks:
+    name: gitleaks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
